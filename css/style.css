@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', cursive;
+}
+
+body {
+    color: azure;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.greetings {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.greetings > span {
+    animation: glow 2.5s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Animación de brillo */
+@keyframes glow {
+    0%, 100% {
+        color: #fff;
+        text-shadow: 0 0 12px #00ff99, 0 0 50px #00ff99, 0 0 100px #00ff99;
+    }
+    10%, 90% {
+        color: #000000;
+        text-shadow: none;
+    }
+}
+
+/* Delay personalizado para cada letra */
+.greetings span:nth-child(1)  { animation-delay: 0s; }
+.greetings span:nth-child(2)  { animation-delay: 0.1s; }
+.greetings span:nth-child(3)  { animation-delay: 0.2s; }
+.greetings span:nth-child(4)  { animation-delay: 0.3s; }
+.greetings span:nth-child(5)  { animation-delay: 0.4s; }
+.greetings span:nth-child(6)  { animation-delay: 0.5s; }
+.greetings span:nth-child(7)  { animation-delay: 0.6s; }
+.greetings span:nth-child(8)  { animation-delay: 0.7s; }
+.greetings span:nth-child(9)  { animation-delay: 0.8s; }
+.greetings span:nth-child(10) { animation-delay: 0.9s; }
+.greetings span:nth-child(11) { animation-delay: 1s; }
+.greetings span:nth-child(12) { animation-delay: 1.1s; }
+
+.description {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    padding: 0 20px;
+    max-width: 90%;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.description {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #ff2fa0;
+    text-shadow: 0 0 10px #ff9edf, 0 0 20px #f0f;
+    animation: pulseText 3s ease-in-out infinite;
+    text-align: center;
+    padding: 0 20px;
+}
+.button button {
+    position: relative;
+    overflow: hidden;
+    padding: 12px 30px;
+    font-size: 18px;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #00ffc8, #ff00d4, #00ffc8);
+    background-size: 300%;
+    animation: moveGlow 5s linear infinite;
+    box-shadow: 0 0 20px #00ffc8, 0 0 40px #ff00d4;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #00ffc8, 0 0 60px #ff00d4;
+}
+
+/* Enlace dentro del botón */
+.button button a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Animación de fondo brillante */
+@keyframes moveGlow {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 300%;
+    }
+}
+
+
+.img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px; /* o 10px, o incluso 0 si quieres que esté muy pegado */
+}
+
+
+
+/* Responsive para celulares */
+@media screen and (max-width: 574px) {
+    .img {
+        width: 250px;
+        height: 250px;
+        border-radius: 0; /* asegúrate de que aquí también esté sin borde redondo */
+    }
+}
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .button a {
+        font-size: 0.8rem;
+    }
+
+    .img {
+        width: 250px;
+        height: 250px;
+    }
+    .img-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.stars-random {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.star-random {
+  position: absolute;
+  font-size: 14px;
+  color: white;
+  opacity: 0;
+  animation: sparkle-move 3s ease-in-out forwards;
+  text-shadow: 0 0 6px white, 0 0 10px #0ff;
+}
+
+@keyframes sparkle-move {
+  0% {
+    transform: scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.4) rotate(15deg);
+  }
+  100% {
+    transform: scale(0.5) rotate(30deg);
+    opacity: 0;
+    top: calc(var(--top));
+    left: calc(var(--left));
+  }
+}
